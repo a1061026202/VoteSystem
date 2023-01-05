@@ -1,0 +1,33 @@
+server:
+  port: 8090
+
+spring:
+  profiles:
+    active: dev # 环境设置
+  application:
+    name: Vote-Core  # 服务名
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://159.75.118.217:3306/vote?serverTimezone=GMT%2B8&characterEncoding=utf-8
+    username: root
+    password: 201910
+    type: com.alibaba.druid.pool.DruidDataSource
+
+
+  redis:
+    host: 159.75.118.217
+    port: 6379
+    database: 4
+    password: heyihao
+    timeout: 10s
+    lettuce:
+      pool:
+        max-active: 20
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+
+mybatis-plus:
+  mapper-locations: classpath*:com/ccghhll/mapper/**/*.xml
+  type-aliases-package: com.ccghhll.pojo.entity
